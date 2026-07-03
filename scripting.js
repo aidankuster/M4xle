@@ -232,6 +232,10 @@ function copyToClipboard() {
                 copyText += "⬛ ";
             }
         }
+        if(copyText.contains("🟩 🟩 🟩 🟩 🟩 "))
+        {
+            return;
+        }
         copyText += "\n";
     }
 
