@@ -93,8 +93,6 @@ function processKey() {
 function processInput(e) {
     if (gameOver) return;
 
-        if(gameOver) return;
-        
         // alert(e.code);
         if ("KeyA" <= e.code && e.code <= "KeyZ") {
             if(col < width) {
@@ -173,6 +171,13 @@ function update() {
 
         if(correct == width) {
             gameOver = true;
+
+            // create share button after game finishes 
+            let shareButton = document.createElement("button");
+            let buttonContainer = document.getElementById('button-container');
+            shareButton.innerText = "Share!";
+            buttonContainer.appendChild(shareButton);
+            shareButton.onclick = copyToClipboard;
         }
     }
 
@@ -201,4 +206,38 @@ function update() {
 
     row += 1; // start new row
     col = 0; // start at 0
+}
+
+function copyToClipboard() {
+    // ⬛ 🟨 🟩 
+    let copyText = "";
+    for(let r = 0; r < height; r++)
+    {
+        for(let c = 0; c < width; c++)
+        {
+            // <span id="0-0" class="tile"></span>
+            let tile = document.getElementById(r.toString() + "-" + c.toString());
+            if(tile.classList.contains("correct"))
+            {
+                copyText += "🟩";
+            }
+            else if(tile.classList.contains("present"))
+            {
+                copyText += "🟨";
+            }
+            else // tile.classList.contains("absent")
+            {
+                copyText += "⬛";
+            }
+        }
+        copyText += "\n";
+    }
+
+    navigator.clipboard.writeText(copyText)
+    .then(text => {
+    console.log('Clipboard content: ', text);
+    })
+    .catch(err => {
+    console.error('Failed to read clipboard contents: ', err);
+    });
 }
