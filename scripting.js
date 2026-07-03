@@ -211,6 +211,8 @@ function update() {
 function copyToClipboard() {
     // ⬛ 🟨 🟩 
     let copyText = "";
+    const today = new Date().toLocaleDateString('en-US');
+    copyText += "M4XLE — " + today + "\n" + "https://aidankuster.github.io/M4xle \n";
     for(let r = 0; r < height; r++)
     {
         for(let c = 0; c < width; c++)
@@ -219,15 +221,15 @@ function copyToClipboard() {
             let tile = document.getElementById(r.toString() + "-" + c.toString());
             if(tile.classList.contains("correct"))
             {
-                copyText += "🟩";
+                copyText += "🟩 ";
             }
             else if(tile.classList.contains("present"))
             {
-                copyText += "🟨";
+                copyText += "🟨 ";
             }
             else // tile.classList.contains("absent")
             {
-                copyText += "⬛";
+                copyText += "⬛ ";
             }
         }
         copyText += "\n";
