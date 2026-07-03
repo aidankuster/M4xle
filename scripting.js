@@ -213,7 +213,7 @@ function copyToClipboard() {
     let copyText = "";
     const today = new Date().toLocaleDateString('en-US');
     copyText += "M4XLE — " + today + "\n" + "https://aidankuster.github.io/M4xle \n";
-    for(let r = 0; r < height; r++)
+    outerLoop: for(let r = 0; r < height; r++)
     {
         for(let c = 0; c < width; c++)
         {
@@ -234,7 +234,7 @@ function copyToClipboard() {
         }
         if(copyText.includes("🟩 🟩 🟩 🟩 🟩 "))
         {
-            return;
+            break outerLoop;
         }
         copyText += "\n";
     }
