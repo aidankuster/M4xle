@@ -232,7 +232,7 @@ function copyToClipboard() {
                 copyText += "⬛ ";
             }
         }
-        if(copyText.contains("🟩 🟩 🟩 🟩 🟩 "))
+        if(copyText.includes("🟩 🟩 🟩 🟩 🟩 "))
         {
             return;
         }
