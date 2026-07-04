@@ -130,7 +130,10 @@ function processInput(e) {
 
         if(!gameOver && row == height) {
             gameOver = true;
-            document.getElementById("answer").innerText = word;
+            document.getElementById("answer").innerText = "Sorry! Today's word was: \n" + word;
+            document.getElementById("answer").style.fontSize = "16px";
+            document.getElementById("answer").style.letterSpacing = "1.5px";
+            document.getElementById("answer").style.marginTop = "-10px";
 
             // create share button now that game is over
             let shareButton = document.createElement("button");
@@ -196,9 +199,13 @@ function update() {
             // create share button now that game is over
             let shareButton = document.createElement("button");
             let buttonContainer = document.getElementById('button-container');
+            const successText = document.createElement("h5");
+            successText.textContent = "Correct! Today's word was: " + word;
+            successText.id = "success";
             shareButton.innerText = "Share!";
             shareButton.className = "button";
             buttonContainer.appendChild(shareButton);
+            document.getElementById("button-container").appendChild(successText);
             shareButton.onclick = copyToClipboard;
         }
     }
@@ -256,17 +263,23 @@ function copyToClipboard() {
         }
         if(copyText.includes("🟩 🟩 🟩 🟩 🟩 "))
         {
+            document.getElementById("success").remove();
             break outerLoop;
         }
         copyText += "\n";
+    }
+    
+    if(!copyText.includes("🟩 🟩 🟩 🟩 🟩 "))
+    {
+        document.getElementById("answer").remove();
     }
 
     navigator.clipboard.writeText(copyText)
     .then(text => {
     console.log('Clipboard content: ', text);
-    const successText = document.createElement("p");
-    successText.textContent = "Results copied to clipboard!";
-    document.getElementById("button-container").appendChild(successText);
+    const successCopy = document.createElement("p");
+    successCopy.textContent = "Results copied to clipboard!";
+    document.getElementById("button-container").appendChild(successCopy);
     })
     .catch(err => {
     console.error('Failed to read clipboard contents: ', err);
