@@ -1,7 +1,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    background-color:mintcream; 
 }
 
 hr {
@@ -19,6 +18,39 @@ h5 {
     margin-bottom: -10px;
     font-size: 16px;
     letter-spacing: 1.5px;
+}
+
+#columns {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 0px;
+    gap: 0px;
+}
+
+#empty-column, #gumi-image {
+    width: 150px;
+    flex-shrink: 0; 
+}
+
+#main-game-container {
+    margin-right: -30px;
+}
+
+#gumi-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-left: 0px;
+    margin-top: 25px;
+}
+
+#gumi-thought img {
+    max-width: 120px;
+    height: auto;
+    display: block;
+    margin-top: 270px;
 }
 
 #title {
