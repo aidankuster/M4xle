@@ -136,6 +136,7 @@ function processInput(e) {
             let shareButton = document.createElement("button");
             let buttonContainer = document.getElementById('button-container');
             shareButton.innerText = "Share!";
+            shareButton.className = "button";
             buttonContainer.appendChild(shareButton);
             shareButton.onclick = copyToClipboard;
         }
@@ -196,6 +197,7 @@ function update() {
             let shareButton = document.createElement("button");
             let buttonContainer = document.getElementById('button-container');
             shareButton.innerText = "Share!";
+            shareButton.className = "button";
             buttonContainer.appendChild(shareButton);
             shareButton.onclick = copyToClipboard;
         }
@@ -262,6 +264,9 @@ function copyToClipboard() {
     navigator.clipboard.writeText(copyText)
     .then(text => {
     console.log('Clipboard content: ', text);
+    const successText = document.createElement("p");
+    successText.textContent = "Results copied to clipboard!";
+    document.getElementById("button-container").appendChild(successText);
     })
     .catch(err => {
     console.error('Failed to read clipboard contents: ', err);
