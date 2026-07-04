@@ -15,12 +15,12 @@ hr {
 
 #board {
     width: 350px;
-    height: 420px;
+    height: 400px;
     margin: 0 auto;
     margin-top: 3px;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 .tile {
@@ -40,19 +40,19 @@ hr {
 }
 
 .correct {
-    background-color: #6AA6A4;
+    background-color: #6CA965;
     color: white;
     border-color: white;
 }
 
 .present {
-    background-color: #C9B458;
+    background-color: #C8B653;
     color: white;
     border-color: white;
 }
 
 .absent {
-    background-color: #787C7E;
+    background-color: #787C7F;
     color: white;
     border-color: white;
 }
@@ -98,3 +98,9 @@ hr {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.footer {
+    margin-top: 30px;
+    color: darkgrey;
+    letter-spacing: 4px;
+    line-height: 0.1;
+}
