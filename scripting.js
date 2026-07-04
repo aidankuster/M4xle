@@ -6,7 +6,7 @@ var col = 0; // current letter for current attempt
 
 var gameOver = false;
 // m4x if you're looking at this, don't look at this
-var wordList = ['oobly', 'treed', 'queck', 'queme', 'puter', 'fumer', 'huger']; // full m4x word list
+var wordList = ['queme', 'treed', 'queck', 'oobly', 'puter', 'fumer', 'huger']; // full m4x word list
 
 // make word picker dependent on current date
 const startDate = new Date('2026-01-01').setHours(0,0,0,0);
