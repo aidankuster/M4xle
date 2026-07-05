@@ -20,29 +20,38 @@ h5 {
     letter-spacing: 1.5px;
 }
 
+#title {
+    margin-left: 2.5px;
+}
+
 #columns {
-    display: flex;
     justify-content: center;
+    display: flex;
     align-items: flex-start;
     width: 100%;
     margin-top: 0px;
     gap: 0px;
 }
 
-#empty-column, #gumi-image {
+#gumi-image {
     width: 150px;
+    flex-shrink: 0; 
+    margin-left: 9px;
+}
+
+#gumi-thought {
     flex-shrink: 0; 
 }
 
 #main-game-container {
-    margin-right: -30px;
+    margin-right: -46px;
 }
 
 #gumi-image img {
     width: 100%;
     height: auto;
     display: block;
-    margin-left: 0px;
+    margin-left: 10px;
     margin-top: 25px;
 }
 
@@ -108,6 +117,7 @@ h5 {
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .key-tile {
